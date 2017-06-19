@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour {
 		ScoreLabel.text = "Score :" + score.ToString ();
 
 		if(playerController.isDead) { 
-			DeadLabel.text = "You Dead!";
+			DeadLabel.text = "You Dead!\nScore :" + score.ToString ();
 			if (BGMMusic.isPlaying) {
 				BGMMusic.Stop ();
 				AudioSource.PlayClipAtPoint (deadClip, transform.position);	

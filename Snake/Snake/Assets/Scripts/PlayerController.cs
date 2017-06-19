@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 		Driver = currentDriver ();
 		Timer += Time.deltaTime;
 		if (Timer > 0.5f) {
@@ -53,18 +52,19 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	Vector3 currentDriver (){
-		if (Input.GetKeyDown (KeyCode.W)) {
-			return  Vector3.forward;
-		} else if (Input.GetKeyDown (KeyCode.S)) {
-			return Vector3.back;
-		} else if (Input.GetKeyDown (KeyCode.A)) {
-			return Vector3.left;
-		} else if (Input.GetKeyDown (KeyCode.D)) {
-			return Vector3.right;
+		if (Input.GetKeyDown (KeyCode.W) || Input.GetKey (KeyCode.UpArrow) ) {
+			return  Vector3.forward ;
+		} else if (Input.GetKeyDown (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
+			return Vector3.back ;
+		} else if (Input.GetKeyDown (KeyCode.A) || Input.GetKey (KeyCode.LeftArrow)) {
+			return Vector3.left ;
+		} else if (Input.GetKeyDown (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
+			return Vector3.right ;
 		} else {
 			return Driver;
 		}
 	}
+		
 
 	void track () {
 		if (!isDead) {
